@@ -55,9 +55,17 @@ jar -cvf citiBike.jar *.class
 
 hadoop jar citiBike.jar bike /user/zl2277/FinalProject/2018citiBikeData /user/zl2277/FinalProject/hourlyOut/
 
-** weather map reduce
+** weather map reduce.
 
-javac -classpath `yarn classpath` -d . tempMapper.javajavac -classpath `yarn classpath` -d . tempReducer.javajavac -classpath `yarn classpath`:. -d . temp.javajar -cvf tempNyc.jar *.classhadoop jar tempNyc.jar temp /user/rs6565/FinalProject/nycWeather/2018nycWeather.csv /user/rs6565/FinalProject/nycWeather/output
+javac -classpath `yarn classpath` -d . tempMapper.java
+
+javac -classpath `yarn classpath` -d . tempReducer.java
+
+javac -classpath `yarn classpath`:. -d . temp.java
+
+jar -cvf tempNyc.jar *.class
+
+hadoop jar tempNyc.jar temp /user/rs6565/FinalProject/nycWeather/2018nycWeather.csv /user/rs6565/FinalProject/nycWeather/output
 
 **After above commands, follow the steps in analytics folder, AnalyticsCodeFinal.hql
 
